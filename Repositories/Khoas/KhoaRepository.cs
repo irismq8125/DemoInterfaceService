@@ -1,4 +1,5 @@
 ﻿using DemoInterfaceService.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace DemoInterfaceService.Repositories.Khoas
 {
@@ -20,9 +21,9 @@ namespace DemoInterfaceService.Repositories.Khoas
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Khoa>> GetAll()
+        public async Task<IEnumerable<Khoa>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _demoDbContext.khoas.ToListAsync();
         }
 
         public Task<Khoa> GetById(Guid id)
